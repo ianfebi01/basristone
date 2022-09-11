@@ -3,7 +3,7 @@ import LoginInput from "../../components/input/LoginInput";
 import Gap from "../../helpers/Gap";
 import "./style.css";
 
-export default function Login() {
+export default function Register() {
   return (
     <div className='main'>
       <header className='header-small header-login'>
@@ -15,24 +15,19 @@ export default function Login() {
       <div className='content-login'>
         <div className='content-body'>
           <div className='login-wrapper'>
-            <h1>Sign In</h1>
+            <h1>Register</h1>
             <Gap h='5px' />
-            <LoginInput
-              placeholder='Enter your email'
-              type='text'
-              error='tes eror'
-            />
-            <LoginInput
-              placeholder='Enter your email'
-              type='text'
-              error='tes eror'
-            />
+            <LoginInput placeholder='Enter your first name' type='text' />
+            <LoginInput placeholder='Enter your last name' type='text' />
+            <LoginInput placeholder='Enter your email' type='text' />
+            <LoginInput placeholder='Enter your password' type='password' />
+            <LoginInput placeholder='Confirm password' type='password' />
             <Gap h='5px' />
-            <button className='btn-submit'>Sign In</button>
+            <button className='btn-submit'>Sign Up</button>
             <div className='span-wrapper'>
-              <span>Not have an Account ?</span>
-              <Link to='/register'>
-                <a href='#'>Sign Up</a>
+              <span>Already have an Account ?</span>
+              <Link to='/login'>
+                <a href='#'>Sign in</a>
               </Link>
             </div>
             <Gap h='10px' />

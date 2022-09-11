@@ -28,3 +28,14 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.login-wrapper .span-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.login-wrapper .span-wrapper span {
+  color: var(--textDark);
+}
+.login-wrapper .span-wrapper a {
+  color: var(--textBlue);
+}

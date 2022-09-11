@@ -1,0 +1,37 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.input-wrapper input {
+  outline: none;
+  border: 1px solid var(--textLight);
+  background: var(--bg-primary);
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin-bottom: 5px;
+  color: var(--color-primary);
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+.input-wrapper .error-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.input-wrapper .error-wrap .error-icon {
+  color: var(--error);
+}
+.input-wrapper .error-wrap .error-text {
+  color: var(--error);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.input-wrapper .error-border {
+  border: 2px solid var(--error);
+}

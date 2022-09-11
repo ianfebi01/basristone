@@ -41,6 +41,7 @@ export default function Footer() {
       </div>
       <div className='bottom'>
         <div className='bottom-wrap'>
+          <Gap h='20px' />
           <span>Builded by ianfebi01</span>
           <Gap h='20px' />
           <div className='icon'>
