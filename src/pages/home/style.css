@@ -44,3 +44,37 @@
   font-size: 20px;
   cursor: pointer;
 }
+@media (max-height: 667px) {
+  .content-1 .content-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5em;
+  }
+  .content-1 .content-body h1 {
+    font-size: 25px;
+  }
+  .content-1 .content-body p {
+    font-size: 14px;
+  }
+  .content-1 .content-body .content-btn .btn-1 {
+    font-size: 16px;
+  }
+  .content-1 .content-body span p {
+    font-size: 14px;
+  }
+  .content-btn {
+    margin: 0;
+  }
+}
+@media (max-width: 525px) {
+  .content-1 .content-body .content-btn {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 425px) {
+  .content-1 .content-body h1 {
+    font-size: 30px;
+  }
+}

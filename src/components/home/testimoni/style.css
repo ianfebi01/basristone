@@ -35,3 +35,19 @@
 .box-2 .right .typography {
   width: 80%;
 }
+
+@media (max-width: 935px) {
+  .box-2 {
+    flex-direction: column;
+    gap: 30px;
+    max-height: fit-content;
+  }
+  .box-2 .left {
+    max-width: 100%;
+    max-height: 40%;
+    width: 100%;
+  }
+  .box-2 .right span {
+    font-size: 18px;
+  }
+}

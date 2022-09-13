@@ -25,22 +25,28 @@ export default function Home() {
       <Header headerSmall={headerSmall} />
       <div ref={myRef} className='ref-header'></div>
       <div className='content-1'>
-        <div className='content-body'>
-          <h1>Batu Alam Ukir.</h1>
-          <h1>Hiasan Dinding.</h1>
-          <h1>Kerajinan Batu Alam.</h1>
-          <p className='text'>
-            Selamat datang di Basristone yang melayani pemesanan dan menjual
-            berbagai macam kerajinan ukir batu alam.
-          </p>
-          <div className='content-btn'>
-            <button className='btn-1'>Lihat Contoh</button>
-            <button className='btn-1'>WhatsApp Kami Sekarang</button>
+        <div className='content-body tes'>
+          <div className='top'>
+            <h1>Batu Alam Ukir.</h1>
+            <h1>Hiasan Dinding.</h1>
+            <h1>Kerajinan Batu Alam.</h1>
           </div>
-          <span>
-            <p>Basristone</p>
-            <p>ukir batu Jogja.</p>
-          </span>
+          <div className='mid'>
+            <p className='text'>
+              Selamat datang di Basristone yang melayani pemesanan dan menjual
+              berbagai macam kerajinan ukir batu alam.
+            </p>
+          </div>
+          <div className='btm'>
+            <div className='content-btn'>
+              <button className='btn-1'>Lihat Contoh</button>
+              <button className='btn-1'>WhatsApp Kami Sekarang</button>
+            </div>
+            <span>
+              <p>Basristone</p>
+              <p>ukir batu Jogja.</p>
+            </span>
+          </div>
         </div>
       </div>
       <div className='content-2'>

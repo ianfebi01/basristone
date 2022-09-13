@@ -8,8 +8,12 @@ import {
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Gap from "../../../helpers/Gap";
+import { useMediaQuery } from "react-responsive";
 
 export default function Footer() {
+  const isPhone = useMediaQuery({
+    query: "(max-height: 844px)",
+  });
   return (
     <div className='footer-wrap'>
       <div className='top'>
@@ -46,19 +50,34 @@ export default function Footer() {
           <Gap h='20px' />
           <div className='icon'>
             <a href='https://twitter.com/ianfebi01'>
-              <FontAwesomeIcon icon={faTwitter} size='lg' />
+              <FontAwesomeIcon
+                icon={faTwitter}
+                size={`${isPhone ? "s" : "lg"}`}
+              />
             </a>
             <a href='https://www.facebook.com/ianfebi01/'>
-              <FontAwesomeIcon icon={faFacebook} size='lg' />
+              <FontAwesomeIcon
+                icon={faFacebook}
+                size={`${isPhone ? "s" : "lg"}`}
+              />
             </a>
             <a href='https://www.instagram.com/ianfebi01/'>
-              <FontAwesomeIcon icon={faInstagram} size='lg' />
+              <FontAwesomeIcon
+                icon={faInstagram}
+                size={`${isPhone ? "s" : "lg"}`}
+              />
             </a>
             <a href='https://github.com/ianfebi01'>
-              <FontAwesomeIcon icon={faGithub} size='lg' />
+              <FontAwesomeIcon
+                icon={faGithub}
+                size={`${isPhone ? "s" : "lg"}`}
+              />
             </a>
             <a href='mailto:ianfebi01@gmail.com'>
-              <FontAwesomeIcon icon={faEnvelope} size='lg' />
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                size={`${isPhone ? "s" : "lg"}`}
+              />
             </a>
           </div>
         </div>

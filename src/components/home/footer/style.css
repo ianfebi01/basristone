@@ -51,3 +51,47 @@
 .footer-wrap .bottom .bottom-wrap .icon a {
   color: #fff;
 }
+
+@media (max-width: 735px) {
+  .footer-wrap .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 4em;
+  }
+  .footer-wrap .top h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+}
+
+@media (max-height: 667px) {
+  .footer-wrap .top {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .footer-wrap .top h1 {
+    font-size: 30px !important;
+    margin: 0;
+  }
+  .footer-wrap .top h3 {
+    font-size: 18px;
+  }
+  .footer-wrap .top .typography p {
+    font-size: 12px;
+  }
+  .bottom .bottom-wrap span {
+    font-size: 16px;
+  }
+  .footer-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .bottom .bottom-wrap {
+    margin-bottom: 10px;
+  }
+}
