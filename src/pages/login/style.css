@@ -40,3 +40,28 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.login-wrapper .span-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.login-wrapper .span-wrapper span {
+  color: var(--textDark);
+  transition: all 0.2s ease-out;
+}
+.login-wrapper .span-wrapper a {
+  color: var(--textBlue);
+  transition: all 0.2s ease-out;
+}
+
+@media (max-height: 747px) {
+  .header-container .btn-1 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 404px) {
+  .span-wrapper {
+    font-size: 12px;
+  }
+}

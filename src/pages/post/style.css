@@ -10,20 +10,28 @@
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
 }
-
+.product-preview .content-body {
+  justify-content: start;
+  margin-bottom: 80px;
+}
 .product-preview .category-wrapper {
   display: flex;
   gap: 10px;
   justify-content: center;
 }
 .product-preview .category-wrapper .item {
-  background: var(--textBlue);
+  cursor: pointer;
+  background: var(--textLight);
   display: flex;
   align-items: center;
   justify-content: center;
   height: 30px;
   padding: 0 20px;
   border-radius: 5px;
+}
+
+.product-preview .category-wrapper .select {
+  background: var(--textBlue);
 }
 .product-preview .category-wrapper .item span {
   color: #fff;
@@ -53,6 +61,8 @@
   justify-content: center;
 }
 .post-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
   background: #fff;
   min-height: 583px;
   height: 100%;
@@ -72,6 +82,42 @@
   width: 500px;
   height: 400px;
 }
+.preview-image {
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+.preview-image .circle {
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--textLight);
+  cursor: pointer;
+}
+.preview-image .close {
+  color: #fff;
+  display: flex;
+}
+.preview-image img {
+  margin: auto;
+  display: block;
+  width: 60%;
+  max-width: 700px;
+}
 .post-wrapper .img-wrapper img {
   width: 100%;
   height: 100%;
@@ -85,7 +131,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 50px;
+
+  white-space: pre-wrap;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
@@ -93,4 +140,43 @@
 .post-wrapper h1 {
   font-size: 35px;
   color: var(--textDark);
+}
+@media (max-width: 797px) {
+  .post-wrapper h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+@media (max-width: 610px) {
+  .post-wrapper .img-wrapper {
+    width: 400px;
+    height: 300px;
+  }
+  .post-wrapper h1 {
+    text-align: center;
+    font-size: 25px;
+  }
+}
+@media (max-width: 554px) {
+  .post-wrapper .img-wrapper {
+    width: 200px;
+    height: 150px;
+  }
+  .post-wrapper .typography {
+    width: 100%;
+  }
+  .post-wrapper .typography-body {
+    width: 100%;
+  }
+  .post-wrapper .typography-body p {
+    font-size: 12px;
+  }
+  .post-wrapper h1 {
+    text-align: center;
+    font-size: 20px;
+  }
+  .post-wrapper .img-wrapper span {
+    font-size: 11px;
+    text-align: center;
+  }
 }

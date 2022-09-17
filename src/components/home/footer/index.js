@@ -12,7 +12,7 @@ import { useMediaQuery } from "react-responsive";
 
 export default function Footer() {
   const isPhone = useMediaQuery({
-    query: "(max-height: 844px)",
+    query: "(max-height: 855px)",
   });
   return (
     <div className='footer-wrap'>
@@ -52,31 +52,31 @@ export default function Footer() {
             <a href='https://twitter.com/ianfebi01'>
               <FontAwesomeIcon
                 icon={faTwitter}
-                size={`${isPhone ? "s" : "lg"}`}
+                size={`${isPhone ? "sm" : "lg"}`}
               />
             </a>
             <a href='https://www.facebook.com/ianfebi01/'>
               <FontAwesomeIcon
                 icon={faFacebook}
-                size={`${isPhone ? "s" : "lg"}`}
+                size={`${isPhone ? "sm" : "lg"}`}
               />
             </a>
             <a href='https://www.instagram.com/ianfebi01/'>
               <FontAwesomeIcon
                 icon={faInstagram}
-                size={`${isPhone ? "s" : "lg"}`}
+                size={`${isPhone ? "sm" : "lg"}`}
               />
             </a>
             <a href='https://github.com/ianfebi01'>
               <FontAwesomeIcon
                 icon={faGithub}
-                size={`${isPhone ? "s" : "lg"}`}
+                size={`${isPhone ? "sm" : "lg"}`}
               />
             </a>
             <a href='mailto:ianfebi01@gmail.com'>
               <FontAwesomeIcon
                 icon={faEnvelope}
-                size={`${isPhone ? "s" : "lg"}`}
+                size={`${isPhone ? "sm" : "lg"}`}
               />
             </a>
           </div>

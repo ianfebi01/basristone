@@ -4,7 +4,7 @@
   margin-top: 6em;
 }
 .content-btn .btn-1 {
-  font-size: 22px;
+  font-size: 20px;
 }
 .content-btn .btn-1:nth-child(1) {
   border-radius: 50px;
@@ -44,7 +44,60 @@
   font-size: 20px;
   cursor: pointer;
 }
-@media (max-height: 667px) {
+a {
+  text-decoration: none;
+}
+/* .burger-menu {
+  z-index: 9;
+  height: 100vh;
+  width: 100vw;
+  background: var(--background);
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 103px;
+  gap: 30px;
+}
+.menu .header-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu .header-menu a {
+  text-decoration: none;
+  color: var(--textLight);
+  font-weight: 600;
+  font-size: 20px;
+}
+.menu .header-menu .item {
+  border-bottom: 0.5px solid var(--textLight);
+  font-size: 20px;
+  padding: 15px 0;
+}
+.menu .btn-2 {
+  font-size: 16px;
+}
+.close-icon {
+  cursor: pointer;
+} */
+@media (max-height: 807px) {
+  .content-1 .content-body {
+    margin-top: 10em;
+  }
+  .content-btn {
+    margin-top: 1em;
+  }
+}
+@media (max-height: 747px) {
   .content-1 .content-body {
     display: flex;
     flex-direction: column;
@@ -67,13 +120,17 @@
     margin: 0;
   }
 }
-@media (max-width: 525px) {
+
+@media (max-width: 701px) {
   .content-1 .content-body .content-btn {
     display: flex;
     flex-direction: column;
   }
+  .content-btn .btn-1 {
+    font-size: 16px;
+  }
 }
-@media (max-width: 425px) {
+@media (max-width: 550px) {
   .content-1 .content-body h1 {
     font-size: 30px;
   }

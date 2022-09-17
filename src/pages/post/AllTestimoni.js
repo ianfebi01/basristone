@@ -5,7 +5,7 @@ import ProductPreviewSingle from "../../components/home/productPreview/ProductPr
 import Gap from "../../helpers/Gap";
 import "./style.css";
 
-export default function AllProduct({ posts }) {
+export default function AllTestimoni({ posts }) {
   const allCategory = posts.map((item) => item.category.toLowerCase());
   const uniqueCategory = allCategory.filter(
     (val, id, array) => array.indexOf(val) == id

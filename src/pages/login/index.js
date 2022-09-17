@@ -50,7 +50,7 @@ export default function Login() {
       dispatch({ type: "LOGIN", payload: data });
       Cookies.set("user", JSON.stringify(data));
       setLoading(false);
-      navigate("/dashboard");
+      navigate("/createPost");
     } catch (error) {
       setLoading(false);
       setError(error.response.data.message);
@@ -60,8 +60,9 @@ export default function Login() {
     <div className='main'>
       <header className='header-small header-login'>
         <div className='header-container'>
-          <h1 className='is-white brand-logo'>Basristone</h1>
-          <button className='btn-1'>Contact</button>
+          <Link to='/' style={{ textDecoration: "none", color: "white" }}>
+            <h1 className='is-white brand-logo'>Basristone</h1>
+          </Link>
         </div>
       </header>
       <div className='content-login'>
@@ -90,7 +91,7 @@ export default function Login() {
                   />
                   <LoginInput
                     placeholder='Enter your password'
-                    type='text'
+                    type='password'
                     name='password'
                     onChange={handleLoginChange}
                   />
@@ -103,9 +104,7 @@ export default function Login() {
             </Formik>
             <div className='span-wrapper'>
               <span>Not have an Account ?</span>
-              <Link to='/register'>
-                <a href='#'>Sign Up</a>
-              </Link>
+              <Link to='/register'>Sign Up</Link>
             </div>
             <Gap h='10px' />
           </div>

@@ -3,15 +3,26 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-
-export default function Header({ headerSmall }) {
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import Cookies from "js-cookie";
+export default function Header({ headerSmall, showBurger, setShowBurger }) {
   const isMediumScreen = useMediaQuery({
     query: "(max-width: 1031px)",
   });
   const isPhone = useMediaQuery({
     query: "(max-height: 667px)",
   });
+
+  const { user } = useSelector((state) => ({ ...state }));
+  const dispatch = useDispatch();
+  const logout = () => {
+    Cookies.set("user", "");
+    dispatch({
+      type: "LOGOUT",
+    });
+  };
+
   return (
     <header
       className={`${!headerSmall ? "header-small shadow-1" : "header-big"}`}
@@ -23,37 +34,71 @@ export default function Header({ headerSmall }) {
           </h1>
         </Link>
         {isMediumScreen ? (
-          <div className='burger'>
+          <div
+            className={!headerSmall ? "is-primary burger" : "burger"}
+            onClick={() => setShowBurger(true)}
+          >
             <FontAwesomeIcon icon={faBars} size={`${isPhone ? "1x" : "2x"}`} />
           </div>
         ) : (
           <>
             <div className='header-menu'>
-              <a href='#' className={`${!headerSmall ? "item" : ""}`}>
+              <Link to='/product' className={`${!headerSmall ? "item" : ""}`}>
+                Produk
+              </Link>
+              <Link
+                to='/product/relief'
+                className={`${!headerSmall ? "item" : ""}`}
+              >
                 Relief
-              </a>
-              <a href='#' className={`${!headerSmall ? "item" : ""}`}>
+              </Link>
+              <Link
+                to='/product/patung'
+                className={`${!headerSmall ? "item" : ""}`}
+              >
                 Patung
-              </a>
-              <a href='#' className={`${!headerSmall ? "item" : ""}`}>
+              </Link>
+              <Link
+                to='/product/lampion'
+                className={`${!headerSmall ? "item" : ""}`}
+              >
                 Lampion
-              </a>
-              <a href='#' className={`${!headerSmall ? "item" : ""}`}>
+              </Link>
+              <Link
+                to='/product/ornamen'
+                className={`${!headerSmall ? "item" : ""}`}
+              >
                 Ornamen
-              </a>
-              <a href='#' className={`${!headerSmall ? "item" : ""}`}>
+              </Link>
+              <Link
+                to='/product/patung'
+                className={`${!headerSmall ? "item" : ""}`}
+              >
                 Roster
-              </a>
-              <a href='#' className={`${!headerSmall ? "item" : ""}`}>
+              </Link>
+              <Link
+                to='/product/patung'
+                className={`${!headerSmall ? "item" : ""}`}
+              >
                 Pilar
-              </a>
-              <a href='#' className={`${!headerSmall ? "item" : ""}`}>
-                Batu Alam
-              </a>
+              </Link>
             </div>
-            <button className={`${!headerSmall ? "btn-2" : "btn-1"}`}>
-              Contact
-            </button>
+            {user ? (
+              <button
+                className={`${!headerSmall ? "btn-2" : "btn-1"}`}
+                onClick={() => {
+                  logout();
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <Link to='/login'>
+                <button className={`${!headerSmall ? "btn-2" : "btn-1"}`}>
+                  Login
+                </button>
+              </Link>
+            )}
           </>
         )}
       </div>
