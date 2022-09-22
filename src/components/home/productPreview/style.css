@@ -36,3 +36,38 @@
   margin-top: auto;
   margin-bottom: 20px;
 }
+.btn-wrap-dashboard {
+  margin: 0 25px;
+  margin-top: auto;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+.btn-edit {
+  color: #fff;
+  background: var(--textBlue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: Poppins, sans-serif;
+  height: 2.5em;
+  padding: 0 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.btn-delete {
+  color: #fff;
+  background: #cd104d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: Poppins, sans-serif;
+  height: 2.5em;
+  padding: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}

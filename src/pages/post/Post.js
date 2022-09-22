@@ -44,7 +44,7 @@ export default function Post({ posts }) {
             <Gap h='30px' />
             <div className='typography'>
               <div className='typography-body'>
-                <p>{postById.body}</p>
+                <p>{postById?.body}</p>
               </div>
             </div>
             <Gap h='80px' />

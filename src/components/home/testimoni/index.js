@@ -20,12 +20,6 @@ export default function Testimoni({ posts }) {
         </div>
       </div>
       <Gap h='30px' />
-      <Link to='/product/testimoni'>
-        <div className='selengkapnya'>
-          <span className='textDark'>Selengkapnya</span>
-          <FontAwesomeIcon icon={faArrowRight} className='arrow' />
-        </div>
-      </Link>
     </>
   );
 }

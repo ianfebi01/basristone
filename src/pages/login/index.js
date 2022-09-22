@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
+import PulseLoader from "react-spinners/PulseLoader";
 
 export default function Login() {
   const loginIfos = {
@@ -97,7 +98,11 @@ export default function Login() {
                   />
                   <Gap h='5px' />
                   <button type='submit' className='btn-submit'>
-                    Sign In
+                    {loading ? (
+                      <PulseLoader color='#fff' size={10} />
+                    ) : (
+                      "Sign In"
+                    )}
                   </button>
                 </Form>
               )}

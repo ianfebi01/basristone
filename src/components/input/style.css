@@ -33,5 +33,23 @@
 }
 
 .input-wrapper .error-border {
-  border: 2px solid var(--error);
+  border: 1px solid var(--error) !important;
+}
+
+textarea {
+  min-height: 300px;
+  width: 100%;
+  overflow-y: visible;
+  border-radius: 5px;
+  padding: 20px;
+  resize: vertical;
+  border: 1px solid var(--textLight);
+  margin-bottom: 5px;
+  font-family: inherit;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+textarea:focus {
+  outline: none;
 }

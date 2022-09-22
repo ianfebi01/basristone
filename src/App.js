@@ -59,6 +59,13 @@ function App() {
             }
             exact
           />
+          <Route
+            path='/dashboard'
+            element={
+              <Dashboard dispatchFunction={dispatchFunction} posts={posts} />
+            }
+            exact
+          />
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route path='/login' element={<Login />} exact />

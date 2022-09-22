@@ -102,6 +102,12 @@ export default function Home({ posts }) {
                 )[0]
               }
             />
+            <Link to='/product/testimoni'>
+              <div className='selengkapnya'>
+                <span className='textDark'>Selengkapnya</span>
+                <FontAwesomeIcon icon={faArrowRight} className='arrow' />
+              </div>
+            </Link>
           </div>
         </div>
         <div className='content-4'>

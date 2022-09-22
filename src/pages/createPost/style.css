@@ -117,22 +117,6 @@
   z-index: 2;
 }
 
-.body-wrapper .input textarea {
-  min-height: 300px;
-  width: 100%;
-  overflow-y: visible;
-  border-radius: 5px;
-  padding: 20px;
-  resize: vertical;
-  border: 1px solid var(--textLight);
-  font-family: inherit;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
-}
-.body-wrapper .input textarea:focus {
-  outline: none;
-}
 .body-wrapper .btn-2 {
   width: 100%;
   display: flex;
@@ -162,7 +146,7 @@
 .body-wrapper .error-wrap {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   gap: 10px;
 }
