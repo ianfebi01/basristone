@@ -3,7 +3,8 @@
 :root {
   --brandColor: hsl(166, 67%, 51%);
   --background: rgb(247, 247, 247);
-  --textDark: hsla(0, 0%, 0%, 0.66);
+  /* --textDark: hsla(0, 0%, 0%, 0.66); */
+  --textDark: #000;
   --textLight: hsla(0, 0%, 0%, 0.33);
   --textBlue: #06428d;
   --shadow: rgba(99, 99, 99, 0.2);
@@ -26,9 +27,10 @@ code {
 
 h1 {
   margin: 0;
-  font-size: 45px;
+  font-size: 38px;
   font-weight: bold;
   text-decoration: none;
+  transition: all 0.2s ease-out;
 }
 h2 {
   margin: 0;

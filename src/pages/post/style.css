@@ -72,6 +72,7 @@
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
+  border-radius: 5px;
 }
 
 .post-wrapper .img-wrapper {
@@ -178,5 +179,18 @@
   .post-wrapper .img-wrapper span {
     font-size: 11px;
     text-align: center;
+  }
+  .product-preview .category-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .product-preview .category-wrapper .item span {
+    font-size: 12px;
+  }
+  .product-preview .category-wrapper .item {
+    height: 25px;
+  }
+  .content-post {
+    padding: 0;
   }
 }

@@ -51,7 +51,7 @@ export default function Login() {
       dispatch({ type: "LOGIN", payload: data });
       Cookies.set("user", JSON.stringify(data));
       setLoading(false);
-      navigate("/createPost");
+      navigate("/dashboard");
     } catch (error) {
       setLoading(false);
       setError(error.response.data.message);

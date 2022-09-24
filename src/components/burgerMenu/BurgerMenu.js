@@ -2,9 +2,10 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 export default function BurgerMenu({ setShowBurger }) {
+  const location = useLocation();
   const { user } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
   const logout = () => {
@@ -52,7 +53,11 @@ export default function BurgerMenu({ setShowBurger }) {
             Pilar
           </Link>
         </div>
-        {user ? (
+        {user && location.pathname !== "/dashboard" ? (
+          <Link to='/dashboard'>
+            <button className='btn-2'>Dashboard</button>
+          </Link>
+        ) : location.pathname === "/dashboard" ? (
           <button
             className='btn-2'
             onClick={() => {

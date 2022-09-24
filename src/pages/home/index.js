@@ -5,11 +5,7 @@ import ProductPreview from "../../components/home/productPreview";
 import Testimoni from "../../components/home/testimoni";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRight,
-  faBars,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Gap from "../../helpers/Gap";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
@@ -46,7 +42,7 @@ export default function Home({ posts }) {
           showBurger={showBurger}
         />
         <div className='content-1'>
-          <div className='content-body tes'>
+          <div className='content-body'>
             <div className='top'>
               <h1>Batu Alam Ukir.</h1>
               <h1>Hiasan Dinding.</h1>
@@ -67,7 +63,9 @@ export default function Home({ posts }) {
                   href='
               https://wa.me/6281806664433'
                 >
-                  <button className='btn-1'>WhatsApp Kami Sekarang</button>
+                  <button className='btn-1 bordered'>
+                    WhatsApp Kami Sekarang
+                  </button>
                 </a>
               </div>
               <span>

@@ -2,11 +2,12 @@ import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { deletePost } from "../../../functions/post";
 import "./style.css";
 import PulseLoader from "react-spinners/PulseLoader";
+import Cookies from "js-cookie";
 
 export default function ProductPreviewSingleDashboard({
   dispatchFunction,
@@ -32,6 +33,18 @@ export default function ProductPreviewSingleDashboard({
     setLoading(false);
   };
   const testRef = useRef();
+
+  const dispatch = useDispatch();
+
+  const handleEdit = () => {
+    dispatch({
+      type: "GET",
+      payload: posts,
+    });
+    Cookies.set("data", JSON.stringify(posts));
+    navigate(`/dashboard/editPost/${posts._id}`);
+  };
+
   return (
     <div className='box' ref={testRef}>
       <img src={posts.images} alt='' />
@@ -49,18 +62,15 @@ export default function ProductPreviewSingleDashboard({
         )}
       </div>
       <div className='btn-wrap-dashboard'>
-        <Link
-          to={`/product/${
-            posts.type === "testimoni"
-              ? posts.type
-              : posts.category.toLowerCase()
-          }/${posts._id}`}
+        <button
+          className='btn-edit'
+          onClick={() => {
+            handleEdit();
+          }}
         >
-          <button className='btn-edit'>
-            <FontAwesomeIcon icon={faPenToSquare} />
-            Edit
-          </button>
-        </Link>
+          <FontAwesomeIcon icon={faPenToSquare} />
+          Edit
+        </button>
 
         <button
           className='btn-delete'

@@ -1,75 +1,91 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faPlus } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
 import Header from "../../components/header";
-import ProductPreview from "../../components/home/productPreview";
-import ProductPreviewSingle from "../../components/home/productPreview/ProductPreviewSingle";
-import Gap from "../../helpers/Gap";
 import "./style.css";
-import Testimoni from "../../components/home/testimoni";
-import ProductPreviewDashboard from "../../components/home/productPreview/productPreviewDashboard";
-import { useSelector } from "react-redux";
+import DashboardPage from "./DashboardPage";
+import { Route, Routes } from "react-router-dom";
+import Footer from "../../components/home/footer";
+import CreatePost from "./CreatePost";
+import EditPost from "./EditPost";
+import Loading from "./Loading";
+import AllProductDashboard from "./AllProductDaashboard";
+import AllTestimoniDashboard from "./AllTestimoniDashboard";
+import BurgerMenu from "../../components/burgerMenu/BurgerMenu";
+import { useMediaQuery } from "react-responsive";
 
 export default function Dashboard({ dispatchFunction, posts }) {
-  const allCategory = posts.map((item) => item.category.toLowerCase());
-  const uniqueCategory = allCategory.filter(
-    (val, id, array) => array.indexOf(val) == id
-  );
-  const navigate = useNavigate();
-  const params = useParams().category;
-
-  const { user } = useSelector((state) => ({ ...state }));
+  const [showBurger, setShowBurger] = useState(false);
+  const [headerSmall, setHeaderSmall] = useState();
+  const isMediumScreen = useMediaQuery({
+    query: "(max-width: 1031px)",
+  });
   return (
     <div className='main'>
-      <Header />
-      <div className='content-dashboard'>
+      {showBurger && isMediumScreen && (
+        <BurgerMenu setShowBurger={setShowBurger} headerSmall={headerSmall} />
+      )}
+      <Header setShowBurger={setShowBurger} />
+      <Routes>
+        <Route
+          path=''
+          element={
+            <DashboardPage dispatchFunction={dispatchFunction} posts={posts} />
+          }
+          exact
+        />
+        <Route
+          path='/createPost'
+          element={
+            <CreatePost posts={posts} dispatchFunction={dispatchFunction} />
+          }
+          exact
+        />
+        <Route
+          path='/editPost/:id'
+          element={
+            <EditPost posts={posts} dispatchFunction={dispatchFunction} />
+          }
+          exact
+        />
+        <Route
+          path='/all/:category'
+          element={
+            <AllProductDashboard
+              dispatchFunction={dispatchFunction}
+              posts={posts.filter((item) =>
+                item.type.toLowerCase().includes("product")
+              )}
+            />
+          }
+          exact
+        />
+        <Route
+          path='/all'
+          element={
+            <AllProductDashboard
+              dispatchFunction={dispatchFunction}
+              posts={posts.filter((item) =>
+                item.type.toLowerCase().includes("product")
+              )}
+            />
+          }
+          exact
+        />
+        <Route
+          path='/testimoni'
+          element={
+            <AllTestimoniDashboard
+              dispatchFunction={dispatchFunction}
+              posts={posts.filter((item) =>
+                item.type.toLowerCase().includes("testimoni")
+              )}
+            />
+          }
+          exact
+        />
+      </Routes>
+      <div className='content-4'>
         <div className='content-body'>
-          <div className='dashboard-wrapper'>
-            <div className='header'>
-              <h1>Dashboard</h1>
-            </div>
-            <Gap h='50px' />
-            <div className='body-wrapper'>
-              <Link to='/'>
-                <button className='btn-add-post'>
-                  <FontAwesomeIcon icon={faPlus} />
-                  Add New Post
-                </button>
-              </Link>
-              <div className='product-wrapper'>
-                <h2 className='text-top'>Manage All Product</h2>
-                <ProductPreviewDashboard
-                  postsData={posts}
-                  posts={posts?.filter((item) =>
-                    item.type.toLowerCase().includes("product")
-                  )}
-                  dispatchFunction={dispatchFunction}
-                />
-                <Link to='/product'>
-                  <div className='selengkapnya'>
-                    <span className='textDark'>Selengkapnya</span>
-                    <FontAwesomeIcon icon={faArrowRight} className='arrow' />
-                  </div>
-                </Link>
-              </div>
-              <div className='product-wrapper'>
-                <h2 className='text-top'>Manage All Testimoni</h2>
-                <ProductPreviewDashboard
-                  postsData={posts}
-                  posts={posts?.filter((item) =>
-                    item.type.toLowerCase().includes("testimoni")
-                  )}
-                />
-                <Link to='/product'>
-                  <div className='selengkapnya'>
-                    <span className='textDark'>Selengkapnya</span>
-                    <FontAwesomeIcon icon={faArrowRight} className='arrow' />
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
+          <Footer />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import "./style.css";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +13,7 @@ export default function Header({ headerSmall, showBurger, setShowBurger }) {
   const isPhone = useMediaQuery({
     query: "(max-height: 667px)",
   });
+  const navigate = useNavigate();
 
   const { user } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ export default function Header({ headerSmall, showBurger, setShowBurger }) {
     dispatch({
       type: "LOGOUT",
     });
+    navigate("/");
   };
+  const location = useLocation();
 
   return (
     <header
@@ -83,7 +86,13 @@ export default function Header({ headerSmall, showBurger, setShowBurger }) {
                 Pilar
               </Link>
             </div>
-            {user ? (
+            {user && location.pathname !== "/dashboard" ? (
+              <Link to='/dashboard'>
+                <button className={`${!headerSmall ? "btn-2" : "btn-1"}`}>
+                  Dashboard
+                </button>
+              </Link>
+            ) : location.pathname === "/dashboard" ? (
               <button
                 className={`${!headerSmall ? "btn-2" : "btn-1"}`}
                 onClick={() => {

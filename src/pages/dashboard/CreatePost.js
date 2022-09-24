@@ -1,26 +1,18 @@
-import {
-  faCircleExclamation,
-  faFileCirclePlus,
-  faX,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
-import Header from "../../components/header";
-import Footer from "../../components/home/footer";
 import Gap from "../../helpers/Gap";
 import "./style.css";
 import dataURItoBlob from "../../helpers/dataURItoBlob";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { uploadImages } from "../../functions/uploadImages";
-
-import { createPost } from "./submitPost";
 import PulseLoader from "react-spinners/PulseLoader";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import PostInput from "../../components/input/PostInput";
 import TextAreaInput from "../../components/input/TextAreaInput";
 import ImageInput from "../../components/input/ImageInput";
+import { createPost } from "../../functions/post";
 export default function CreatePost({ dispatchFunction, posts }) {
   const postInfos = {
     type: "product",
@@ -31,7 +23,6 @@ export default function CreatePost({ dispatchFunction, posts }) {
   };
   const [post, setPost] = useState(postInfos);
   const { type, category, header, images, body } = post;
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPost({ ...post, [name]: value });
@@ -120,102 +111,98 @@ export default function CreatePost({ dispatchFunction, posts }) {
   };
 
   return (
-    <div className='main'>
-      <Header />
-      <div className='content-create-post'>
-        <div className='content-body'>
-          <div className='create-post-wrapper'>
-            <div className='header'>
-              <h1>Post New Content</h1>
-            </div>
-            <Gap h='80px' />
-            <Formik
-              enableReinitialize
-              initialValues={{
-                ...post,
-              }}
-              validationSchema={postValidation}
-              onSubmit={() => {
-                handleSubmit();
-              }}
-            >
-              {(formik) => (
-                <Form>
-                  <div className='body-wrapper'>
-                    <div className='title'>
-                      <h3>Type</h3>
-                    </div>
-                    <div className='input'>
-                      <label htmlFor='product' className='container'>
-                        <span>Product</span>
-                        <input
-                          type='radio'
-                          name='type'
-                          id='product'
-                          onChange={() => setPost({ ...post, type: "product" })}
-                        />
-                        <span className='checkmark'></span>
-                      </label>
-                      <Gap w='30px' />
-                      <label htmlFor='testimoni' className='container'>
-                        <span>Testimoni</span>
-                        <input
-                          type='radio'
-                          name='type'
-                          id='testimoni'
-                          onChange={() =>
-                            setPost({ ...post, type: "testimoni" })
-                          }
-                        />
-                        <span className='checkmark'></span>
-                      </label>
-                    </div>
+    <div className='content-create-post'>
+      <div className='content-body'>
+        <div className='create-post-wrapper'>
+          <div className='header'>
+            <h1>Post New Content</h1>
+          </div>
+          <Gap h='80px' />
+          <Formik
+            enableReinitialize
+            initialValues={{
+              ...post,
+            }}
+            validationSchema={postValidation}
+            onSubmit={() => {
+              handleSubmit();
+            }}
+          >
+            {(formik) => (
+              <Form>
+                <div className='body-wrapper'>
+                  <div className='title'>
+                    <h3>Type</h3>
                   </div>
-                  <Gap h='30px' />
-                  <div className='body-wrapper'>
-                    <div className='title'>
-                      <h3>Category</h3>
-                    </div>
-                    <div className='input'>
-                      <PostInput
-                        type='text'
-                        name='category'
-                        placeholder='Category'
-                        value={post.category}
-                        onChange={handleChange}
+                  <div className='input'>
+                    <label htmlFor='product' className='container'>
+                      <span>Product</span>
+                      <input
+                        type='radio'
+                        name='type'
+                        id='product'
+                        onChange={() => setPost({ ...post, type: "product" })}
                       />
-                    </div>
+                      <span className='checkmark'></span>
+                    </label>
+                    <Gap w='30px' />
+                    <label htmlFor='testimoni' className='container'>
+                      <span>Testimoni</span>
+                      <input
+                        type='radio'
+                        name='type'
+                        id='testimoni'
+                        onChange={() => setPost({ ...post, type: "testimoni" })}
+                      />
+                      <span className='checkmark'></span>
+                    </label>
                   </div>
-                  <Gap h='30px' />
-                  <div className='body-wrapper'>
-                    <div className='title'>
-                      <h3>Title</h3>
-                    </div>
-                    <div className='input'>
-                      <PostInput
-                        type='text'
-                        name='header'
-                        placeholder='Title'
-                        value={post.header}
-                        onChange={handleChange}
-                      />
-                    </div>
+                </div>
+                <Gap h='30px' />
+                <div className='body-wrapper'>
+                  <div className='title'>
+                    <h3>Category</h3>
                   </div>
-                  <Gap h='30px' />
-                  <div className='body-wrapper'>
-                    <div className='title'>
-                      <h3>Images</h3>
-                    </div>
-                    <div className='input'>
-                      <ImageInput
-                        name='images'
-                        type='file'
-                        value={undefined}
-                        onChange={handleImages}
-                        post={post}
-                        setPost={setPost}
-                      />
-                      {/* {post.images ? (
+                  <div className='input'>
+                    <PostInput
+                      type='text'
+                      name='category'
+                      placeholder='Category'
+                      value={post.category}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <Gap h='30px' />
+                <div className='body-wrapper'>
+                  <div className='title'>
+                    <h3>Title</h3>
+                  </div>
+                  <div className='input'>
+                    <PostInput
+                      type='text'
+                      name='header'
+                      placeholder='Title'
+                      value={post.header}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <Gap h='30px' />
+                <div className='body-wrapper'>
+                  <div className='title'>
+                    <h3>Images</h3>
+                  </div>
+                  <div className='input'>
+                    <ImageInput
+                      name='images'
+                      type='file'
+                      value={undefined}
+                      onChange={handleImages}
+                      post={post}
+                      setPost={setPost}
+                    />
+                    {/* {post.images ? (
                         <div className='img-wrapper'>
                           <img
                             src={post.images}
@@ -254,56 +241,50 @@ export default function CreatePost({ dispatchFunction, posts }) {
                           </button>
                         </>
                       )} */}
-                    </div>
-                  </div>
-                  <Gap h='30px' />
-                  <div className='body-wrapper'>
-                    <div className='title'>
-                      <h3>Description</h3>
-                    </div>
-                    <div className='input'>
-                      <TextAreaInput
-                        type='text'
-                        name='body'
-                        placeholder='Description'
-                        value={post.body}
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
-                  <Gap h='50px' />
-                  <div className='body-wrapper'>
-                    <button type='submit' className='btn-2'>
-                      {loading ? (
-                        <PulseLoader color='#fff' size={10} />
-                      ) : (
-                        "Submit"
-                      )}
-                    </button>
-                  </div>
-                </Form>
-              )}
-            </Formik>
-            {error && (
-              <>
-                <Gap h='50px' />
-                <div className='body-wrapper'>
-                  <div className='error-wrap'>
-                    <FontAwesomeIcon
-                      className='error-icon'
-                      icon={faCircleExclamation}
-                    />
-                    <span className='error-text'>{error}</span>
                   </div>
                 </div>
-              </>
+                <Gap h='30px' />
+                <div className='body-wrapper'>
+                  <div className='title'>
+                    <h3>Description</h3>
+                  </div>
+                  <div className='input'>
+                    <TextAreaInput
+                      type='text'
+                      name='body'
+                      placeholder='Description'
+                      value={post.body}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <Gap h='50px' />
+                <div className='body-wrapper'>
+                  <button type='submit' className='btn-2'>
+                    {loading ? (
+                      <PulseLoader color='#fff' size={10} />
+                    ) : (
+                      "Submit"
+                    )}
+                  </button>
+                </div>
+              </Form>
             )}
-          </div>
-        </div>
-      </div>
-      <div className='content-4'>
-        <div className='content-body'>
-          <Footer />
+          </Formik>
+          {error && (
+            <>
+              <Gap h='50px' />
+              <div className='body-wrapper'>
+                <div className='error-wrap'>
+                  <FontAwesomeIcon
+                    className='error-icon'
+                    icon={faCircleExclamation}
+                  />
+                  <span className='error-text'>{error}</span>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
