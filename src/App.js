@@ -7,11 +7,11 @@ import Product from "./pages/post";
 import LoggedInRoutes from "./routes/LoggedInRoutes";
 import Dashboard from "./pages/dashboard";
 import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
-import CreatePost from "./pages/createPost";
+import CreatePost from "./pages/dashboard/CreatePost";
 import { useEffect, useReducer } from "react";
 import axios from "axios";
 import { postsReducer } from "./functions/reducers";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const [{ loading, error, posts }, dispatchFunction] = useReducer(
@@ -35,7 +35,13 @@ function App() {
       const { data } = await axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/getAllPosts`
       );
-
+      // data
+      // dispatch({
+      //   type: "GET",
+      //   payload: data,
+      // });
+      // Cookies.set("data", JSON.stringify(data));
+      // data
       dispatchFunction({
         type: "POSTS_SUCCESS",
         payload: data,
@@ -53,9 +59,9 @@ function App() {
       <Routes>
         <Route element={<LoggedInRoutes />}>
           <Route
-            path='/createPost'
+            path='/dashboard/*'
             element={
-              <CreatePost dispatchFunction={dispatchFunction} posts={posts} />
+              <Dashboard dispatchFunction={dispatchFunction} posts={posts} />
             }
             exact
           />

@@ -29,7 +29,7 @@ export default function Post({ posts }) {
       <div className='content-post'>
         <div className='content-post-body'>
           <div className='post-wrapper'>
-            <Gap h='80px' />
+            <Gap h='50px' />
             <h1>{postById?.header}</h1>
             <Gap h='30px' />
             <div className='img-wrapper'>
@@ -44,7 +44,7 @@ export default function Post({ posts }) {
             <Gap h='30px' />
             <div className='typography'>
               <div className='typography-body'>
-                <p>{postById.body}</p>
+                <p>{postById?.body}</p>
               </div>
             </div>
             <Gap h='80px' />

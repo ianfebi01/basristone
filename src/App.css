@@ -25,6 +25,7 @@
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
+  transition: all 0.2s ease-out;
 }
 .content-2 {
   height: 100vh;
@@ -89,31 +90,13 @@
 .content-login .content-body {
   align-items: center;
 }
-.content-body h1 {
-  color: #fff;
-}
-.content-body .text {
-  font-size: 18px;
-  color: #fff;
-  font-weight: bold;
-  max-width: 28em;
-  margin: 5em 0;
-}
-.selengkapnya span {
-  margin: 0;
-  font-weight: 600;
-}
+
 .arrow {
   transition: all 0.2s;
 }
 
 .selengkapnya:hover .arrow {
   transform: translateX(10px);
-}
-.box-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
 }
 
 @media (max-width: 938px) {

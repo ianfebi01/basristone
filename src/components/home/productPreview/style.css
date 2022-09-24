@@ -4,6 +4,11 @@
   background: #fff;
   display: flex;
   flex-direction: column;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+  transition: all 0.2s ease-out;
+  border-radius: 5px;
 }
 
 .box img {
@@ -14,6 +19,8 @@
   background-position-y: center;
   object-fit: cover;
   transition: all 0.2s;
+  transition: all 0.2s ease-out;
+  border-radius: 5px;
 }
 .box img:hover {
   transform: scale(1.05);
@@ -27,6 +34,7 @@
 .typography p {
   color: var(--textDark);
   font-size: 16px;
+  transition: all 0.2s ease-out;
 }
 .box button {
   font-size: 16px;
@@ -35,4 +43,45 @@
   margin: 0 25px;
   margin-top: auto;
   margin-bottom: 20px;
+}
+.btn-wrap-dashboard {
+  margin: 0 25px;
+  margin-top: auto;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+.btn-edit {
+  color: #fff;
+  background: var(--textBlue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: Poppins, sans-serif;
+  height: 2.5em;
+  padding: 0 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.btn-delete {
+  color: #fff;
+  background: #cd104d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: Poppins, sans-serif;
+  height: 2.5em;
+  padding: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.box-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  transition: all 0.2s ease-out;
 }
