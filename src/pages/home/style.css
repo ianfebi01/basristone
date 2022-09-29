@@ -68,61 +68,72 @@
 a {
   text-decoration: none;
 }
-/* .burger-menu {
-  z-index: 9;
-  height: 100vh;
-  width: 100vw;
-  background: var(--background);
-  position: fixed;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+.home-slider {
+  position: relative;
 }
-.menu {
-  width: 90%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 103px;
-  gap: 30px;
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px !important;
 }
-.menu .header-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+
+.slick-prev::before,
+.slick-next::before {
+  position: absolute;
+  top: 50%;
+  z-index: 99;
 }
-.menu .header-menu a {
-  text-decoration: none;
-  color: var(--textLight);
-  font-weight: 600;
-  font-size: 20px;
+.slick-prev {
+  left: 30px !important;
+  z-index: 1;
 }
-.menu .header-menu .item {
-  border-bottom: 0.5px solid var(--textLight);
-  font-size: 20px;
-  padding: 15px 0;
+.slick-next:before {
+  right: 65px !important;
 }
-.menu .btn-2 {
-  font-size: 16px;
+
+.slick-dots {
+  position: absolute;
+  bottom: 50px !important;
 }
-.close-icon {
-  cursor: pointer;
-} */
+.slick-dots li button {
+  position: relative !important;
+}
+.slick-dots li.slick-active button:before {
+  color: #fff !important;
+  background: #fff !important;
+  content: "";
+  height: 10px;
+  width: 20px !important;
+  top: 50% !important;
+  left: 0 !important;
+  padding: 0;
+  border-radius: 10px;
+  transition: all 0.2s ease-out;
+}
+.slick-dots li button:before {
+  color: rgba(255, 255, 255, 0.773) !important;
+  background: rgba(255, 255, 255, 0.773) !important;
+  content: "" !important;
+  height: 10px !important;
+  width: 10px !important;
+  padding: 0;
+  top: 50% !important;
+  left: 25% !important;
+  border-radius: 10px;
+  transition: all 0.2s ease-out;
+}
 @media (max-height: 807px) {
-  .content-1 .content-body {
+  .content-1 .content-body,
+  .content-1-2 .content-body {
     margin-top: 10em;
   }
   .content-btn {
     margin-top: 1em;
   }
 }
-@media (max-height: 747px) {
+@media (max-height: 667px) {
   .content-1 .content-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     margin-top: 5em;
   }
   .content-1 .content-body h1 {

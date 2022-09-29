@@ -12,9 +12,10 @@ import { Formik, Form } from "formik";
 import PostInput from "../../components/input/PostInput";
 import TextAreaInput from "../../components/input/TextAreaInput";
 import ImageInput from "../../components/input/ImageInput";
-import { createPost, updatePost } from "../../functions/post";
+import { updatePost } from "../../functions/post";
 import { useNavigate, useParams } from "react-router-dom";
-import Cookies from "js-cookie";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function EditPost({ dispatchFunction, posts }) {
   const { user } = useSelector((state) => ({ ...state }));
@@ -33,6 +34,7 @@ export default function EditPost({ dispatchFunction, posts }) {
   const [post, setPost] = useState(postInfos.type ? postInfos : "");
 
   const { type, category, header, images, body } = post;
+  console.log("data: ", type);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -102,6 +104,15 @@ export default function EditPost({ dispatchFunction, posts }) {
             type: "POSTS_SUCCESS",
             payload: [post2, ...posts2],
           });
+          toast.success("Data Submited!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
           setLoading(false);
           setPost(postInfos);
           setError("");
@@ -136,6 +147,15 @@ export default function EditPost({ dispatchFunction, posts }) {
           setLoading(false);
           setPost(postInfos);
           setError("");
+          toast.success("Data Edited!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
           navigate("/dashboard");
         } else {
           setLoading(false);
@@ -175,23 +195,51 @@ export default function EditPost({ dispatchFunction, posts }) {
                   <div className='input'>
                     <label htmlFor='product' className='container'>
                       <span>Product</span>
-                      <input
-                        type='radio'
-                        name='type'
-                        id='product'
-                        onChange={() => setPost({ ...post, type: "product" })}
-                      />
+                      {type === "product" ? (
+                        <input
+                          type='radio'
+                          name='type'
+                          id='product'
+                          value=''
+                          checked='checked'
+                          onChange={() => setPost({ ...post, type: "product" })}
+                        />
+                      ) : (
+                        <input
+                          type='radio'
+                          name='type'
+                          id='product'
+                          value=''
+                          onChange={() => setPost({ ...post, type: "product" })}
+                        />
+                      )}
                       <span className='checkmark'></span>
                     </label>
                     <Gap w='30px' />
                     <label htmlFor='testimoni' className='container'>
                       <span>Testimoni</span>
-                      <input
-                        type='radio'
-                        name='type'
-                        id='testimoni'
-                        onChange={() => setPost({ ...post, type: "testimoni" })}
-                      />
+                      {type === "testimoni" ? (
+                        <input
+                          type='radio'
+                          name='type'
+                          id='testimoni'
+                          checked='checked'
+                          value=''
+                          onChange={() =>
+                            setPost({ ...post, type: "testimoni" })
+                          }
+                        />
+                      ) : (
+                        <input
+                          type='radio'
+                          name='type'
+                          id='testimoni'
+                          value=''
+                          onChange={() =>
+                            setPost({ ...post, type: "testimoni" })
+                          }
+                        />
+                      )}
                       <span className='checkmark'></span>
                     </label>
                   </div>

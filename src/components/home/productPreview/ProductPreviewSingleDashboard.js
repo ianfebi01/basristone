@@ -8,6 +8,7 @@ import { deletePost } from "../../../functions/post";
 import "./style.css";
 import PulseLoader from "react-spinners/PulseLoader";
 import Cookies from "js-cookie";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function ProductPreviewSingleDashboard({
   dispatchFunction,
@@ -30,6 +31,15 @@ export default function ProductPreviewSingleDashboard({
         payload: [...data],
       });
     }
+    toast.success("Data Deleted!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     setLoading(false);
   };
   const testRef = useRef();
@@ -49,16 +59,16 @@ export default function ProductPreviewSingleDashboard({
     <div className='box' ref={testRef}>
       <img src={posts.images} alt='' />
       <div className='typography'>
-        {posts.header.lengt < 20 ? (
-          <h2>{posts.header}</h2>
+        {posts.header.lengt > 40 ? (
+          <h2>{posts.header.substring(0, 40)}...</h2>
         ) : (
-          <h2>{posts.header.substring(0, 18)}...</h2>
+          <h2>{posts.header}</h2>
         )}
 
-        {posts.body.length >= 200 ? (
-          <p>{posts.body.substring(0, 200)}.....</p>
+        {posts.body.length >= 100 ? (
+          <p>{posts.body.substring(0, 100)}.....</p>
         ) : (
-          <p>{posts.body.substring(0, 200)}</p>
+          <p>{posts.body.substring(0, 100)}</p>
         )}
       </div>
       <div className='btn-wrap-dashboard'>

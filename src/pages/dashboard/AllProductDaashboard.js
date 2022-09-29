@@ -24,7 +24,7 @@ export default function AllProductDashboard({ posts, dispatchFunction }) {
               className={`item ${params ? "" : "select"}`}
               onClick={() => navigate("/dashboard/all")}
             >
-              <span>Semua Kategori</span>
+              <span>Semua</span>
             </div>
             {uniqueCategory.map((item, i) => (
               <Link
@@ -36,11 +36,6 @@ export default function AllProductDashboard({ posts, dispatchFunction }) {
                 <span>{item}</span>
               </Link>
             ))}
-            {/* {uniqueCategory.map((item, i) => (
-              <div className='item' key={i}>
-                <span>{item}</span>
-              </div>
-            ))} */}
           </div>
           <Gap h='30px' />
           <div className='box-3'>
