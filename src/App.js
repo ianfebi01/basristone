@@ -12,6 +12,8 @@ import { useEffect, useReducer } from "react";
 import axios from "axios";
 import { postsReducer } from "./functions/reducers";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [{ loading, error, posts }, dispatchFunction] = useReducer(
@@ -56,6 +58,17 @@ function App() {
 
   return (
     <div className='div'>
+      <ToastContainer
+        position='top-center'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Routes>
         <Route element={<LoggedInRoutes />}>
           <Route

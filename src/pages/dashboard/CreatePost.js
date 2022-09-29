@@ -13,6 +13,10 @@ import PostInput from "../../components/input/PostInput";
 import TextAreaInput from "../../components/input/TextAreaInput";
 import ImageInput from "../../components/input/ImageInput";
 import { createPost } from "../../functions/post";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function CreatePost({ dispatchFunction, posts }) {
   const postInfos = {
     type: "product",
@@ -32,6 +36,7 @@ export default function CreatePost({ dispatchFunction, posts }) {
   const imageInputRef = useRef(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleImages = (e) => {
     let files = Array.from(e.target.files);
@@ -97,8 +102,19 @@ export default function CreatePost({ dispatchFunction, posts }) {
           type: "POSTS_SUCCESS",
           payload: [res.data, ...posts],
         });
+
         setLoading(false);
+        toast.success("Data Submited!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         setPost(postInfos);
+        setSuccess(true);
         setError("");
       } else {
         setLoading(false);
@@ -107,6 +123,15 @@ export default function CreatePost({ dispatchFunction, posts }) {
     } catch (error) {
       setLoading(false);
       setError(error.response.data.message);
+      toast.error("Error, data not submited!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 

@@ -5,7 +5,6 @@ import { useField, ErrorMessage, useFormikContext } from "formik";
 import {
   faCircleExclamation,
   faFileCirclePlus,
-  faX,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";

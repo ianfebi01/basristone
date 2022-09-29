@@ -8,16 +8,16 @@ export default function ProductPreviewSingle({ posts }) {
     <div className='box'>
       <img src={posts.images} alt='' />
       <div className='typography'>
-        {posts.header.lengt < 20 ? (
-          <h2>{posts.header}</h2>
+        {posts.header.lengt >= 40 ? (
+          <h2>{posts.header.substring(0, 40)}...</h2>
         ) : (
-          <h2>{posts.header.substring(0, 18)}...</h2>
+          <h2>{posts.header}</h2>
         )}
 
         {posts.body.length >= 200 ? (
-          <p>{posts.body.substring(0, 200)}.....</p>
+          <p>{posts.body.substring(0, 100)}.....</p>
         ) : (
-          <p>{posts.body.substring(0, 200)}</p>
+          <p>{posts.body.substring(0, 100)}</p>
         )}
       </div>
       <div className='btn-wrap'>

@@ -27,6 +27,22 @@
   box-sizing: border-box; /* Opera/IE 8+ */
   transition: all 0.2s ease-out;
 }
+.content-1-2 {
+  background-image: url("../public/images/BG2.png");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-position-x: center;
+  background-position-y: center;
+  padding: 0 30px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+  transition: all 0.2s ease-out;
+  position: relative;
+}
 .content-2 {
   height: 100vh;
   width: 100vw;
@@ -107,6 +123,15 @@
         rgba(18, 42, 66, 0.5)
       ),
       url("../public/images/BG.png");
+  }
+
+  .content-1-2 {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(18, 42, 66, 0.5),
+        rgba(18, 42, 66, 0.5)
+      ),
+      url("../public/images/BG2.png");
   }
   .footer-wrap .top h1 {
     font-size: 45px;

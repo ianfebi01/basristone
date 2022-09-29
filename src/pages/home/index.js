@@ -3,13 +3,20 @@ import Header from "../../components/header";
 import Footer from "../../components/home/footer";
 import ProductPreview from "../../components/home/productPreview";
 import Testimoni from "../../components/home/testimoni";
-import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Gap from "../../helpers/Gap";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import "./style.css";
 import BurgerMenu from "../../components/burgerMenu/BurgerMenu";
+import axios from "axios";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import BasristoneBrand from "../../components/home/content1/BasristoneBrand";
+import BasristoneBrand2 from "../../components/home/content1/BasristoneBrand2";
 
 export default function Home({ posts }) {
   const myRef = useRef();
@@ -29,6 +36,15 @@ export default function Home({ posts }) {
     observer.observe(myRef.current);
   }, []);
 
+  const settings = {
+    dots: true,
+    autoplay: true,
+    infinite: true,
+    autoplaySpeed: 6000,
+    arrow: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <div>
       <div className='main'>
@@ -41,40 +57,16 @@ export default function Home({ posts }) {
           setShowBurger={setShowBurger}
           showBurger={showBurger}
         />
-        <div className='content-1'>
-          <div className='content-body'>
-            <div className='top'>
-              <h1>Batu Alam Ukir.</h1>
-              <h1>Hiasan Dinding.</h1>
-              <h1>Kerajinan Batu Alam.</h1>
-            </div>
-            <div className='mid'>
-              <p className='text'>
-                Selamat datang di Basristone yang melayani pemesanan dan menjual
-                berbagai macam kerajinan ukir batu alam.
-              </p>
-            </div>
-            <div className='btm'>
-              <div className='content-btn'>
-                <Link to='/product'>
-                  <button className='btn-1'>Lihat Contoh</button>
-                </Link>
-                <a
-                  href='
-              https://wa.me/6281806664433'
-                >
-                  <button className='btn-1 bordered'>
-                    WhatsApp Kami Sekarang
-                  </button>
-                </a>
-              </div>
-              <span>
-                <p>Basristone</p>
-                <p>ukir batu Jogja.</p>
-              </span>
-            </div>
-          </div>
+
+        {/* Slider */}
+        <div className='home-slider'>
+          <Slider {...settings}>
+            <BasristoneBrand />
+            <BasristoneBrand2 />
+          </Slider>
         </div>
+        {/* Slider */}
+
         <div className='content-2'>
           <div className='content-body'>
             <ProductPreview

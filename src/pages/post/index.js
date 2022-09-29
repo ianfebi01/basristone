@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Routes, Route } from "react-router-dom";
 import BurgerMenu from "../../components/burgerMenu/BurgerMenu";
