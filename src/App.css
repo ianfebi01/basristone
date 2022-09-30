@@ -114,6 +114,43 @@
 .selengkapnya:hover .arrow {
   transform: translateX(10px);
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #1e2b32;
+  color: #fff;
+  z-index: 999;
+  position: fixed;
+}
+.loading-text {
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: -1px;
+  font-size: 45px;
+  position: relative;
+}
+.loading-text:before {
+  content: attr(loading-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  width: 100%;
+  color: var(--textLight);
+  overflow: hidden;
+  animation: animate 2s ease-in-out infinite;
+}
+@keyframes animate {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 
 @media (max-width: 938px) {
   .content-1 {

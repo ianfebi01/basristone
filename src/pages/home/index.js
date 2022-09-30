@@ -17,6 +17,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BasristoneBrand from "../../components/home/content1/BasristoneBrand";
 import BasristoneBrand2 from "../../components/home/content1/BasristoneBrand2";
+import { motion } from "framer-motion";
 
 export default function Home({ posts }) {
   const myRef = useRef();
@@ -46,7 +47,11 @@ export default function Home({ posts }) {
     slidesToScroll: 1,
   };
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className='main'>
         {showBurger && isMediumScreen && (
           <BurgerMenu setShowBurger={setShowBurger} headerSmall={headerSmall} />
@@ -106,6 +111,6 @@ export default function Home({ posts }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

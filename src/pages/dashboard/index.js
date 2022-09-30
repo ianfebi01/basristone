@@ -11,6 +11,7 @@ import AllProductDashboard from "./AllProductDaashboard";
 import AllTestimoniDashboard from "./AllTestimoniDashboard";
 import BurgerMenu from "../../components/burgerMenu/BurgerMenu";
 import { useMediaQuery } from "react-responsive";
+import { motion } from "framer-motion";
 
 export default function Dashboard({ dispatchFunction, posts }) {
   const [showBurger, setShowBurger] = useState(false);
@@ -19,7 +20,12 @@ export default function Dashboard({ dispatchFunction, posts }) {
     query: "(max-width: 1031px)",
   });
   return (
-    <div className='main'>
+    <motion.div
+      className='main'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {showBurger && isMediumScreen && (
         <BurgerMenu setShowBurger={setShowBurger} headerSmall={headerSmall} />
       )}
@@ -88,6 +94,6 @@ export default function Dashboard({ dispatchFunction, posts }) {
           <Footer />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

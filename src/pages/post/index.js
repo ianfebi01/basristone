@@ -11,6 +11,7 @@ import AllProduct from "./AllProduct";
 import AllTestimoni from "./AllTestimoni";
 import Post from "./Post";
 import "./style.css";
+import { motion } from "framer-motion";
 
 export default function Product({ posts }) {
   const [showBurger, setShowBurger] = useState(false);
@@ -19,7 +20,12 @@ export default function Product({ posts }) {
     query: "(max-width: 1031px)",
   });
   return (
-    <div className='main'>
+    <motion.div
+      className='main'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {showBurger && isMediumScreen && (
         <BurgerMenu setShowBurger={setShowBurger} showBurger={showBurger} />
       )}
@@ -86,6 +92,6 @@ export default function Product({ posts }) {
           <Footer />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
