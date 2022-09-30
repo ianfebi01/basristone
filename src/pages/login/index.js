@@ -9,6 +9,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 import PulseLoader from "react-spinners/PulseLoader";
+import { motion } from "framer-motion";
 
 export default function Login() {
   const loginIfos = {
@@ -58,7 +59,12 @@ export default function Login() {
     }
   };
   return (
-    <div className='main'>
+    <motion.div
+      className='main'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <header className='header-small header-login'>
         <div className='header-container'>
           <Link to='/' style={{ textDecoration: "none", color: "white" }}>
@@ -115,6 +121,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
