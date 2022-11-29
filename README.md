@@ -2,7 +2,7 @@
 
 This is my personal project for may friend that have stone store.
 
-You can visit this app on this link : [Basristone](basristone.vercel.app)
+You can visit this app on this link : [Basristone](https://basristone.vercel.app/)
 
 If you want to try post or edit the post on this app you can login using this:
 
