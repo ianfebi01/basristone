@@ -73,13 +73,13 @@ export default function AllProduct({ posts }) {
 
           <Gap h='30px' />
           {/* Tags */}
-          {/* <TagsInput
+          <TagsInput
             tags={tags}
             setTags={setTags}
             removeTags={removeTags}
             addTags={addTags}
             errorText={errorText}
-          /> */}
+          />
           {/* Tags */}
 
           <Gap h='30px' />
