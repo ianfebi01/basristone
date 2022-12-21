@@ -16,11 +16,11 @@ export default function Login() {
     email: "",
     password: "",
   };
+  const [login, setLogin] = useState(loginIfos);
+  const { email, password } = login;
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [login, setLogin] = useState(loginIfos);
-  const { email, password } = login;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
